@@ -1,0 +1,16 @@
+service: sls-deps
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: ap-southeast-1
+  lambdaHashingVersion: '20201221'
+
+functions:
+  hello:
+    handler: ./v1/foo/bar/handler.hello
+    events:
+      - httpApi:
+          path: /
+          method: get
